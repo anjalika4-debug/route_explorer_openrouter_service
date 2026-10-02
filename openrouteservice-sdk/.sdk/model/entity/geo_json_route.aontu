@@ -1,0 +1,163 @@
+# Entity: geo_json_route
+
+main: kit: entity: geo_json_route: {
+
+  alias: field: {}
+
+  fields: {
+    bbox: {
+      h: "Bbox"
+      n: "bbox"
+      r: false
+      sh: "Bounding box that covers all returned routes"
+      t: "`$ARRAY`"
+    }
+    features: {
+      h: "Features"
+      n: "features"
+      r: false
+      t: "`$ARRAY`"
+    }
+    metadata: {
+      h: "Metadata"
+      n: "metadata"
+      r: false
+      sh: "Information about the request"
+      t: "`$OBJECT`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  name: "geo_json_route"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /v2/directions/{profile}/geojson"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "profile"
+                or: "profile"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "request"
+                or: "request"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/v2/directions/{profile}/geojson"
+          q: {
+            exist: [
+              "profile"
+              "request"
+            ]
+          }
+          s: [
+            {
+              lit: "v2"
+            }
+            {
+              lit: "directions"
+            }
+            {
+              var: "profile"
+            }
+            {
+              lit: "geojson"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /v2/directions/{profile}"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "profile"
+                or: "profile"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "end"
+                or: "end"
+                r: true
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "start"
+                or: "start"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v2/directions/{profile}"
+          q: {
+            exist: [
+              "end"
+              "profile"
+              "start"
+            ]
+          }
+          s: [
+            {
+              lit: "v2"
+            }
+            {
+              lit: "directions"
+            }
+            {
+              var: "profile"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

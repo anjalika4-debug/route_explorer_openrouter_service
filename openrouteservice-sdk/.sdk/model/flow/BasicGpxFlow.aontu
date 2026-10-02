@@ -1,0 +1,22 @@
+# BasicGpxFlow
+
+main: kit: flow: BasicGpxFlow:
+{
+  entity: "gpx",
+  kind: "basic",
+  name: "BasicGpxFlow",
+  step: [
+    {
+      i: {
+        ref: "gpx_ref01"
+      }
+
+      m: {
+        profile: "profile01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicGpxFlow"
+}

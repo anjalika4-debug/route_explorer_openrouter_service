@@ -1,0 +1,22 @@
+# BasicJsonMatrixFlow
+
+main: kit: flow: BasicJsonMatrixFlow:
+{
+  entity: "json_matrix",
+  kind: "basic",
+  name: "BasicJsonMatrixFlow",
+  step: [
+    {
+      i: {
+        ref: "json_matrix_ref01"
+      }
+
+      m: {
+        profile: "profile01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicJsonMatrixFlow"
+}

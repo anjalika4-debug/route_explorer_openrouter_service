@@ -1,0 +1,80 @@
+# Entity: gpx
+
+main: kit: entity: gpx: {
+
+  alias: field: {}
+
+  fields: {
+    gpxRouteElements: {
+      h: "Gpx Route Elements"
+      n: "gpxRouteElements"
+      r: false
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "gpx"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /v2/directions/{profile}/gpx"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "profile"
+                or: "profile"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "request"
+                or: "request"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/v2/directions/{profile}/gpx"
+          q: {
+            exist: [
+              "profile"
+              "request"
+            ]
+          }
+          s: [
+            {
+              lit: "v2"
+            }
+            {
+              lit: "directions"
+            }
+            {
+              var: "profile"
+            }
+            {
+              lit: "gpx"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

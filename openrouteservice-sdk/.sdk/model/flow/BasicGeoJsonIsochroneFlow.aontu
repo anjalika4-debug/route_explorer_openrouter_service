@@ -1,0 +1,22 @@
+# BasicGeoJsonIsochroneFlow
+
+main: kit: flow: BasicGeoJsonIsochroneFlow:
+{
+  entity: "geo_json_isochrone",
+  kind: "basic",
+  name: "BasicGeoJsonIsochroneFlow",
+  step: [
+    {
+      i: {
+        ref: "geo_json_isochrone_ref01"
+      }
+
+      m: {
+        profile: "profile01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicGeoJsonIsochroneFlow"
+}

@@ -1,0 +1,22 @@
+# BasicJsonRouteFlow
+
+main: kit: flow: BasicJsonRouteFlow:
+{
+  entity: "json_route",
+  kind: "basic",
+  name: "BasicJsonRouteFlow",
+  step: [
+    {
+      i: {
+        ref: "json_route_ref01"
+      }
+
+      m: {
+        profile: "profile01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicJsonRouteFlow"
+}

@@ -1,0 +1,64 @@
+# Generated from the API definition and overwritten on every build: do not
+# edit this file. Put customizations in the guide entry file, which includes
+# this one and overrides its defaults:
+#   guide.aontu
+
+guide: {
+  metrics: count: entity: 8
+  metrics: count: path: 8
+  metrics: count: method: 9
+
+  entity: geo_json_isochrone: {
+    path: "/v2/isochrones/{profile}": {
+      rename: param: "profile": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: geo_json_route: {
+    path: "/v2/directions/{profile}": {
+      op: load: method: *GET
+    }
+    path: "/v2/directions/{profile}/geojson": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: gpx: {
+    path: "/v2/directions/{profile}/gpx": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: health: {
+    path: "/v2/health": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: json: {
+    path: "/v2/directions/{profile}/json": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: json_matrix: {
+    path: "/v2/matrix/{profile}": {
+      rename: param: "profile": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: json_route: {
+    path: "/v2/directions/{profile}": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: response_entity: {
+    path: "/v2/status": {
+      op: load: method: *GET
+    }
+  }
+
+}

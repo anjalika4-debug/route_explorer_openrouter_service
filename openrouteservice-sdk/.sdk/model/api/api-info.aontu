@@ -1,5 +1,27 @@
 # API Information
 
 
-
+main: {
+  kit: {
+    info: {
+      auth: false
+      contact: {
+        email: "info@openrouteservice.org"
+      }
+      description: "This is the openrouteservice API V2 documentation for ORS Core-Version `5.0.2`. Documentations for [older Core-Versions](https://github.com/GIScience/openrouteservice-docs/releases) can be rendered with the [Swagger-Editor](https://editor.swagger.io/)."
+      license: {
+        name: "MIT"
+        url: "https://github.com/swagger-api/swagger-ui/blob/master/LICENSE"
+      }
+      servers: [
+        {
+          url: "https://api.openrouteservice.org"
+        }
+      ]
+      summary: "This is the openrouteservice API V2 documentation for ORS Core-Version `5.0.2`."
+      title: "OpenRouteService"
+      website: "https://openrouteservice.org"
+    }
+  }
+}
 

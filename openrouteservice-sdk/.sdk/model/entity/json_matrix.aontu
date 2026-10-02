@@ -1,0 +1,122 @@
+# Entity: json_matrix
+
+main: kit: entity: json_matrix: {
+
+  alias: field: {}
+
+  fields: {
+    destinations: {
+      h: "Destinations"
+      n: "destinations"
+      r: false
+      sh: "The individual destinations of the matrix calculations."
+      t: "`$ARRAY`"
+    }
+    distances: {
+      h: "Distances"
+      n: "distances"
+      r: false
+      sh: "The distances of the matrix calculations."
+      t: "`$ARRAY`"
+    }
+    durations: {
+      h: "Durations"
+      n: "durations"
+      r: false
+      sh: "The durations of the matrix calculations."
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    metadata: {
+      h: "Metadata"
+      n: "metadata"
+      r: false
+      sh: "Information about the service and request"
+      t: "`$OBJECT`"
+    }
+    sources: {
+      h: "Sources"
+      n: "sources"
+      r: false
+      sh: "The individual sources of the matrix calculations."
+      t: "`$ARRAY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "json_matrix"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /v2/matrix/{profile}"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "profile"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "request"
+                or: "request"
+                r: true
+                t: "`$OBJECT`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/v2/matrix/{profile}"
+          q: {
+            exist: [
+              "id"
+              "request"
+            ]
+          }
+          r: {
+            param: {
+              profile: "id"
+            }
+          }
+          s: [
+            {
+              lit: "v2"
+            }
+            {
+              lit: "matrix"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

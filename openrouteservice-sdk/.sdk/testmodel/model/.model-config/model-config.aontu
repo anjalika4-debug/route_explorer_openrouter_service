@@ -1,0 +1,9 @@
+# Model configuration. Declare build actions and their order here.
+#
+# Example (TypeScript loads the module; Go binds the name to a
+# registered action func):
+#   sys: model: action: { example: load: 'build/example' }
+#   sys: model: order: action: 'example'
+
+sys: model: action: {}
+sys: model: order: action: *''

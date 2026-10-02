@@ -1,0 +1,113 @@
+# Entity: geo_json_isochrone
+
+main: kit: entity: geo_json_isochrone: {
+
+  alias: field: {}
+
+  fields: {
+    bbox: {
+      h: "Bbox"
+      n: "bbox"
+      r: false
+      sh: "Bounding box that covers all returned isochrones"
+      t: "`$ARRAY`"
+    }
+    features: {
+      h: "Features"
+      n: "features"
+      r: false
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    metadata: {
+      h: "Metadata"
+      n: "metadata"
+      r: false
+      sh: "Information about the request"
+      t: "`$OBJECT`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "geo_json_isochrone"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /v2/isochrones/{profile}"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "profile"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "request"
+                or: "request"
+                r: true
+                t: "`$OBJECT`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/v2/isochrones/{profile}"
+          q: {
+            exist: [
+              "id"
+              "request"
+            ]
+          }
+          r: {
+            param: {
+              profile: "id"
+            }
+          }
+          s: [
+            {
+              lit: "v2"
+            }
+            {
+              lit: "isochrones"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

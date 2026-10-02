@@ -1,0 +1,61 @@
+# Entity: response_entity
+
+main: kit: entity: response_entity: {
+
+  alias: field: {}
+
+  fields: {
+    body: {
+      h: "Body"
+      n: "body"
+      r: false
+      t: "`$OBJECT`"
+    }
+    statusCode: {
+      h: "Status Code"
+      n: "statusCode"
+      r: false
+      t: "`$STRING`"
+    }
+    statusCodeValue: {
+      fo: "int32"
+      h: "Status Code Value"
+      n: "statusCodeValue"
+      r: false
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "response_entity"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /v2/status"
+            source: "swagger2"
+            version: 2
+          }
+          m: "GET"
+          o: "/v2/status"
+          s: [
+            {
+              lit: "v2"
+            }
+            {
+              lit: "status"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

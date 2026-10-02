@@ -1,0 +1,22 @@
+# BasicJsonFlow
+
+main: kit: flow: BasicJsonFlow:
+{
+  entity: "json",
+  kind: "basic",
+  name: "BasicJsonFlow",
+  step: [
+    {
+      i: {
+        ref: "json_ref01"
+      }
+
+      m: {
+        profile: "profile01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicJsonFlow"
+}

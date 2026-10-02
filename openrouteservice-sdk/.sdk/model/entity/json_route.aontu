@@ -1,0 +1,92 @@
+# Entity: json_route
+
+main: kit: entity: json_route: {
+
+  alias: field: {}
+
+  fields: {
+    bbox: {
+      h: "Bbox"
+      n: "bbox"
+      r: false
+      sh: "Bounding box that covers all returned routes"
+      t: "`$ARRAY`"
+    }
+    metadata: {
+      h: "Metadata"
+      n: "metadata"
+      r: false
+      sh: "Information about the service and request"
+      t: "`$OBJECT`"
+    }
+    routes: {
+      h: "Routes"
+      n: "routes"
+      r: false
+      sh: "A list of routes returned from the request"
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "json_route"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /v2/directions/{profile}"
+            source: "swagger2"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "profile"
+                or: "profile"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "request"
+                or: "request"
+                r: true
+                t: "`$ANY`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/v2/directions/{profile}"
+          q: {
+            exist: [
+              "profile"
+              "request"
+            ]
+          }
+          s: [
+            {
+              lit: "v2"
+            }
+            {
+              lit: "directions"
+            }
+            {
+              var: "profile"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

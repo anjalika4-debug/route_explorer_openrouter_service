@@ -29,11 +29,6 @@ def: 'openrouteservice-openapi3.yml'
 @"target/target-index.aontu"
 
 
-# Operation workflows.
-@"flow/flow-index.aontu"
-
 
 @"./project.aontu"
 
-# Documentation editions. Settings belong in project.aontu.
-@"edition/edition-index.aontu"

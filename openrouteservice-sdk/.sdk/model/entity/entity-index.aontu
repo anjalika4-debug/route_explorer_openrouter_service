@@ -1,3 +1,10 @@
 # Entity Models
 
-
+@"./geo_json_isochrone.aontu"
+@"./geo_json_route.aontu"
+@"./gpx.aontu"
+@"./health.aontu"
+@"./json.aontu"
+@"./json_matrix.aontu"
+@"./json_route.aontu"
+@"./response_entity.aontu"

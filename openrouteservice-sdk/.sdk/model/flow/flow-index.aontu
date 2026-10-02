@@ -1,2 +1,10 @@
-# Operational Flows
+# Flows
 
+@"./BasicGeoJsonIsochroneFlow.aontu"
+@"./BasicGeoJsonRouteFlow.aontu"
+@"./BasicGpxFlow.aontu"
+@"./BasicHealthFlow.aontu"
+@"./BasicJsonFlow.aontu"
+@"./BasicJsonMatrixFlow.aontu"
+@"./BasicJsonRouteFlow.aontu"
+@"./BasicResponseEntityFlow.aontu"
