@@ -1,132 +1,56 @@
-&#x20;Voxgig SDK Developer Experience Report
+# Voxgig SDKGen – OpenRouteService Observations
 
+## API I Selected
 
+I selected **OpenRouteService** because I could not find an existing OpenRouteService SDK in the Voxgig SDK catalogue.
 
-\## Project
+I used the OpenRouteService API definition as the source for generating the SDK.
 
+## My Experience
 
+I worked with the Voxgig SDKGen tooling to generate an SDK from the OpenRouteService API definition.
 
-\*\*OpenRouteService SDK\*\*
+The process helped me understand how an API definition is converted into a structured SDK model and then into generated SDK code.
 
+The generated project includes TypeScript and Go SDK output, along with the Voxgig `.sdk` model and supporting project files.
 
+## Issues I Faced
 
-\## API Selection
-
-
-
-I selected the OpenRouteService API because it did not have an SDK listed in the Voxgig open-source SDK catalogue at the time of this project.
-
-
-
-The OpenRouteService API provides routing and geospatial services, and an OpenAPI/Swagger definition was available for use with the Voxgig SDK generator.
-
-
-
-\## Generator Experience
-
-
-
-I used the Voxgig SDK generator to create the SDK project from the OpenRouteService OpenAPI definition.
-
-
-
-The generator created a structured SDK project containing the Voxgig SDK generation configuration, model files, tests, documentation-related files, and project configuration.
-
-
-
-The generated project was then committed to GitHub under an MIT License.
-
-
-
-\## Issue Encountered
-
-
-
-The main issue occurred during automatic dependency installation on Windows.
-
-
-
-The Voxgig generator reported:
-
-
+The main issue I encountered on Windows was:
 
 `Failed to start npm: spawn npm ENOENT`
 
+Although npm was installed and available from PowerShell, the SDK creation process initially had difficulty starting npm from the generator.
 
+I also encountered a `multisource_not_found` error related to the generated test scaffold. After investigating it, I found that the actual OpenRouteService SDK generation had completed successfully; the remaining error was related to the test scaffold rather than the generated SDK output.
 
-The system had Node.js and npm installed and npm could be executed normally from PowerShell. The problem occurred specifically when the generator attempted to start npm as a child process.
+## How I Worked Around It
 
+I investigated the generated `.sdk` structure and ran the relevant SDK generation steps separately instead of relying only on the complete generation command.
 
+I also checked the generated model and output directories to verify that the OpenRouteService API had been converted into SDK components.
 
-\## Workaround
+This allowed me to successfully generate the TypeScript and Go SDKs.
 
+## My Observations
 
+1. The SDKGen process can generate a substantial amount of project structure automatically from an API definition.
+2. The generated `.sdk` model is useful for understanding how Voxgig represents API entities, features, targets and generated components.
+3. The Windows error messages were not always immediately clear about the underlying cause, so identifying which stage of the generation process had failed was important.
+4. The generated project contains many files, which can initially make it difficult to understand which files are source/model files and which are generated output.
+5. Separating the main SDK generation from the test scaffold made it easier to identify that the OpenRouteService SDK itself had been generated successfully.
+6. Clearer Windows-specific troubleshooting information and a short explanation of the generated project structure would make the initial experience easier for a new SDKGen user.
 
-I entered the generated `.sdk` directory and ran:
+## 30-Minute Time Box
 
+The initial setup and troubleshooting took longer than the suggested 30-minute time box because of the Windows/npm issue and the generated test-scaffold issue.
 
+However, working through these problems gave me a better understanding of the SDKGen workflow and the relationship between the API definition, `.sdk` model and generated SDK output.
 
-`npm install`
+## Repository
 
+GitHub repository:
 
+https://github.com/anjalika4-debug/route_explorer_openrouter_service
 
-manually.
-
-
-
-The installation completed successfully and generated the required dependencies and post-install files.
-
-
-
-\## Developer Experience Observations
-
-
-
-The generator was able to create a substantial SDK project from the OpenAPI definition, including the internal Voxgig model structure and supporting project files.
-
-
-
-The main friction point was the automatic npm installation step on Windows. Having a clear fallback instruction for manually running `npm install` could make the experience easier when the generator cannot start npm automatically.
-
-
-
-The generated project also contains a relatively large number of files, so it can initially be difficult for a new developer to understand which files are generated configuration, model files, tests, and SDK-related source files.
-
-
-
-\## Time-boxing
-
-
-
-The task instructions specified a maximum of 30 minutes of human work. I treated the 30-minute limit as a time-box for the implementation and did not count automated generation, dependency installation, or environment-related troubleshooting as additional SDK development work.
-
-
-
-The Windows npm process-spawning issue was documented rather than treated as a reason to modify the generated SDK manually.
-
-
-
-\## Repository
-
-
-
-The completed project is available in my GitHub repository:
-
-
-
-`https://github.com/anjalika4-debug/route\_explorer\_openrouter\_service`
-
-
-
-\## Conclusion
-
-
-
-Overall, the Voxgig SDK generator successfully produced the OpenRouteService SDK project from the API definition. The main issue I encountered was the Windows `spawn npm ENOENT` error during automatic installation, which I worked around by installing the dependencies manually inside the generated `.sdk` directory.
-
-
-
-I have documented this issue because it was the most significant part of my developer experience with the generator.
-
-
-
+The repository contains the generated OpenRouteService SDK and the Voxgig SDKGen project structure.
